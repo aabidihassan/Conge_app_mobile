@@ -23,19 +23,13 @@ public class MainActivity extends AppCompatActivity {
     private SessionManager sessionManager;
 
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         sessionManager  = new SessionManager(MainActivity.this);
         if(sessionManager.getSession()==0){
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
         }
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
 
      binding = ActivityMainBinding.inflate(getLayoutInflater());
      setContentView(binding.getRoot());
@@ -61,12 +55,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main, menu);
+//        return true;
+//    }
 
     @Override
     public boolean onSupportNavigateUp() {

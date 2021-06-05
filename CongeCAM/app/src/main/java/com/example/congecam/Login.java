@@ -68,11 +68,12 @@ public class Login extends AppCompatActivity {
                                     if (!error) {
                                         //builder.setMessage("Login succes");
                                         progressDialog.hide();
-                                        User user = new User(Integer.parseInt(json.getString("id")), Integer.parseInt(json.getString("id_service")),
+                                        User user = new User(json.getInt("id"),  json.getInt("id_service"),
                                                 json.getString("name"), json.getString("email"));
+                                        User.setId(json.getInt("id"));
                                         sessionManager.saveSession(user);
-//                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                                        startActivity(intent);
+                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        startActivity(intent);
                                     } else {
                                         progressDialog.hide();
 //                                        builder.setMessage("المعلومات غير صحيحة, المرجوا اعادة المحاولة");
@@ -99,7 +100,8 @@ public class Login extends AppCompatActivity {
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(Login.this, "Errooor", Toast.LENGTH_LONG).show();
+                                progressDialog.hide();
+                                Toast.makeText(Login.this, "حدث خطأ !!", Toast.LENGTH_LONG).show();
                                 error.printStackTrace();
                             }
                         }){

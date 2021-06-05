@@ -1,13 +1,17 @@
 <resources>
-    <string name="app_name">Conge CAM</string>
+    <string name="app_name">رخص محكمة الاستئناف</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_title">رخص محكمة الاستئناف مراكش</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">تسجيل الخروج</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_home">الصفحة الرئيسية</string>
+    <string name="menu_gallery">طلب رخصة</string>
+    <string name="menu_slideshow">طلبات النيابة</string>
+    <string-array name="type_vac">
+        <item>رخصة سنوية</item>
+        <item>ادن بالتغيب</item>
+    </string-array>
 </resources>

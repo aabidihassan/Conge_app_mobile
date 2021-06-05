@@ -1,7 +1,7 @@
 package com.example.congecam.entity;
 
 public class User {
-    private int id, id_service;
+    private static int id, id_service;
     private String name, email;
 
     public User(int id, int id_service, String name, String email) {
@@ -11,8 +11,8 @@ public class User {
         this.email = email;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public static void setId(int idd) {
+        id = idd;
     }
 
     public void setId_service(int id_service) {
@@ -27,7 +27,7 @@ public class User {
         this.email = email;
     }
 
-    public int getId() {
+    public static int getId() {
         return id;
     }
 
