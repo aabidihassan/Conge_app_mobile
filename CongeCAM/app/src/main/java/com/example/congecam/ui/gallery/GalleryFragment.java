@@ -147,7 +147,7 @@ private RequestQueue requestQueue;
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-        sessionManager.removeSession();
+        //sessionManager.removeSession();
     }
 
     @Override
