@@ -13,6 +13,8 @@ public class Conge {
         this.date_fin = date_fin;
     }
 
+    public Conge(){}
+
     public void setId_conge(int id_conge) {
         this.id_conge = id_conge;
     }

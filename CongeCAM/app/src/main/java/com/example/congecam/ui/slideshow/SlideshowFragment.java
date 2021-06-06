@@ -97,11 +97,14 @@ private RecyclerView.Adapter adapter;
                                 listeConge.add(conge);
                             }
                             progressDialog.hide();
+                            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                             adapter = new Adapter(listeConge, getContext());
                             recyclerView.setAdapter(adapter);
                         }catch (JSONException e){
                             e.printStackTrace();
                         }
+
+
                     }
                 },
                 new Response.ErrorListener() {

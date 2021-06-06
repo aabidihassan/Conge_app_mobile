@@ -20,24 +20,25 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private List<Conge> listeConges;
     private Context context;
+    LayoutInflater layoutInflater;
 
     public Adapter(List<Conge> listeConges, Context context){
         this.listeConges = listeConges;
         this.context = context;
+        layoutInflater = LayoutInflater.from(context);
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = layoutInflater.inflate(R.layout.one_item,parent,false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_slideshow, parent, false);
-        return new ViewHolder(v);
-    }
-
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Conge conge =  listeConges.get(position);
-
-        holder.header.setText(conge.getName());
-        holder.desc.setText(conge.getDate_fin());
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.header.setText(listeConges.get(position).getName());
+        holder.desc.setText(listeConges.get(position).getDate_fin());
 
         //Toast.makeText(context, conge.getName(), Toast.LENGTH_SHORT).show();
     }
@@ -52,10 +53,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         public TextView header;
         public TextView desc;
 
-        public ViewHolder(@NonNull @NotNull View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            header = (TextView) itemView.findViewById(R.id.TextViewHead);
-            desc = (TextView) itemView.findViewById(R.id.desc);
+            header = (TextView) itemView.findViewById(R.id.songTitle);
+            desc = (TextView) itemView.findViewById(R.id.songArtist);
         }
     }
 
