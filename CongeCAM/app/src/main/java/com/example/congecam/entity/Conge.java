@@ -1,7 +1,7 @@
 package com.example.congecam.entity;
 
 public class Conge {
-    private int id_conge, type_vac;
+    private int id_conge, type_vac, etat;
     private String name, referance, date_debut, date_fin;
 
     public Conge(int id_conge, int type_vac, String name, String referance, String date_debut, String date_fin) {
@@ -13,7 +13,24 @@ public class Conge {
         this.date_fin = date_fin;
     }
 
+    public Conge(int type_vac, String name, String referance, String date_debut, String date_fin, int etat) {
+        this.etat = etat;
+        this.type_vac = type_vac;
+        this.name = name;
+        this.referance = referance;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+    }
+
     public Conge(){}
+
+    public int getEtat() {
+        return etat;
+    }
+
+    public void setEtat(int etat) {
+        this.etat = etat;
+    }
 
     public void setId_conge(int id_conge) {
         this.id_conge = id_conge;

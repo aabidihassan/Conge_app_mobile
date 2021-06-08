@@ -92,7 +92,7 @@ private String today = null;
         tt = binding.tt;
 
         int id = sessionManager.getSession();
-        adjoints = binding.adjoint;
+        adjoints = binding.etat;
         adj = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(getContext());
         server_url =  "https://estsafi.000webhostapp.com/v1/adjoints.php?id="+id;
@@ -141,15 +141,6 @@ private String today = null;
 
 
         //end Calendr
-
-
-
-
-
-
-
-
-
 
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, server_url, null,

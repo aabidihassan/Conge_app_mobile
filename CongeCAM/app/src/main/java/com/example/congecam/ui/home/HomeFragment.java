@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -21,9 +23,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.congecam.Login;
 import com.example.congecam.R;
+import com.example.congecam.adapters.Adapter;
+import com.example.congecam.adapters.HomeAdapter;
 import com.example.congecam.databinding.FragmentHomeBinding;
+import com.example.congecam.databinding.FragmentSlideshowBinding;
+import com.example.congecam.entity.Conge;
 import com.example.congecam.session.SessionManager;
 import com.example.congecam.singleton.MySingleton;
+import com.example.congecam.ui.slideshow.SlideshowViewModel;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -46,6 +53,10 @@ private String server_url;
 private SessionManager sessionManager;
 private ProgressDialog progressDialog;
 private ArrayList<PieEntry> entries;
+private RecyclerView recyclerView;
+private SlideshowViewModel slideshowViewModel;
+private ArrayList<Conge> liste;
+private RecyclerView.Adapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
@@ -62,12 +73,18 @@ private ArrayList<PieEntry> entries;
 
     pieChart = binding.piechart;
 
+    liste = new ArrayList<>();
+
+    recyclerView = binding.liste;
+    recyclerView.setHasFixedSize(true);
+    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
     progressDialog = new ProgressDialog(getContext());
 
     progressDialog.setMessage("");
     progressDialog.show();
 
-    server_url = "https://estsafi.000webhostapp.com/v1/profile.php?"+id;
+    server_url = "https://estsafi.000webhostapp.com/v1/profile.php?id="+id;
 
     entries = new ArrayList<>();
 
@@ -80,8 +97,20 @@ private ArrayList<PieEntry> entries;
                             json = new JSONObject(response);
                             JSONArray jsonArray = json.getJSONArray("liste");
                             for(int i=0; i<jsonArray.length(); i++){
-
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                Conge conge = new Conge(
+                                        jsonObject.optInt("type_vac"),
+                                        jsonObject.optString("name"),
+                                        jsonObject.optString("referance"),
+                                        jsonObject.optString("date_debut"),
+                                        jsonObject.optString("date_fin"),
+                                        jsonObject.optInt("etat"));
+                                liste.add(conge);
                             }
+
+                            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                            adapter = new HomeAdapter(liste, getContext());
+                            recyclerView.setAdapter(adapter);
                             int rest = json.getInt("rest");
 
                             entries.add(new PieEntry(22-rest, "الأيام المستهلكة"));

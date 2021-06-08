@@ -1,13 +1,10 @@
 package com.example.congecam.ui.slideshow;
 
-import android.app.LauncherActivity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,14 +20,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.congecam.Adapter;
-import com.example.congecam.R;
+import com.example.congecam.adapters.Adapter;
 import com.example.congecam.databinding.FragmentSlideshowBinding;
 import com.example.congecam.entity.Conge;
 import com.example.congecam.session.SessionManager;
-import com.example.congecam.singleton.MySingleton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -70,7 +64,7 @@ private RecyclerView.Adapter adapter;
 
         server_url =  "https://estsafi.000webhostapp.com/v1/demandes.php?id="+id;
 
-        Toast.makeText(getContext(), ""+id, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getContext(), ""+id, Toast.LENGTH_LONG).show();
 
         recyclerView = binding.liste;
         recyclerView.setHasFixedSize(true);

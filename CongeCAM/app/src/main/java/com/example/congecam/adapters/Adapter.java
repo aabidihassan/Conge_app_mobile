@@ -1,18 +1,16 @@
-package com.example.congecam;
+package com.example.congecam.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.congecam.R;
 import com.example.congecam.entity.Conge;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -60,7 +58,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = (TextView) itemView.findViewById(R.id.name);
+            name = (TextView) itemView.findViewById(R.id.adjoint);
             de = (TextView) itemView.findViewById(R.id.de);
             jusqua = (TextView) itemView.findViewById(R.id.jusqua);
             type = (TextView) itemView.findViewById(R.id.type);
