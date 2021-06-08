@@ -93,7 +93,6 @@ private RecyclerView.Adapter adapter;
                                         jsonObject.optString("referance"),
                                         jsonObject.optString("date_debut"),
                                         jsonObject.optString("date_fin"));
-                                //Toast.makeText(getContext(), jsonObject.optString("name"), Toast.LENGTH_LONG).show();
                                 listeConge.add(conge);
                             }
                             progressDialog.hide();
@@ -110,7 +109,7 @@ private RecyclerView.Adapter adapter;
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getContext(), "Erroooor", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "حدث حطأ", Toast.LENGTH_LONG).show();
                     }
                 });
 

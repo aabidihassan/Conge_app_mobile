@@ -37,8 +37,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.header.setText(listeConges.get(position).getName());
-        holder.desc.setText(listeConges.get(position).getDate_fin());
+        holder.name.setText(listeConges.get(position).getName());
+        holder.de.setText(listeConges.get(position).getDate_debut());
+        holder.jusqua.setText(listeConges.get(position).getDate_fin());
+        holder.referance.setText(listeConges.get(position).getReferance());
+        switch (listeConges.get(position).getType_vac()){
+            case (1): holder.type.setText("رخصة سنوية"); break;
+            case (2): holder.type.setText("ادن بالتغيب"); break;
+        }
 
         //Toast.makeText(context, conge.getName(), Toast.LENGTH_SHORT).show();
     }
@@ -50,13 +56,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView header;
-        public TextView desc;
+        public TextView referance, name, de, jusqua, type;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            header = (TextView) itemView.findViewById(R.id.songTitle);
-            desc = (TextView) itemView.findViewById(R.id.songArtist);
+            name = (TextView) itemView.findViewById(R.id.name);
+            de = (TextView) itemView.findViewById(R.id.de);
+            jusqua = (TextView) itemView.findViewById(R.id.jusqua);
+            type = (TextView) itemView.findViewById(R.id.type);
+            referance = (TextView) itemView.findViewById(R.id.referance);
         }
     }
 
