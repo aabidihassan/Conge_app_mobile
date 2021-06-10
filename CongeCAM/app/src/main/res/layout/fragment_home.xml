@@ -8,6 +8,17 @@
     android:padding="10dp"
     tools:context=".ui.home.HomeFragment">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="لائحة طلباتي :"
+        app:layout_constraintBottom_toTopOf="@+id/liste"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/piechart"
         android:layout_width="370dp"
@@ -23,13 +34,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/liste"
         android:layout_width="370dp"
-        android:layout_height="426dp"
-        android:layout_marginStart="21dp"
+        android:layout_height="362dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
