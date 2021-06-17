@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,7 @@ private RequestQueue requestQueue;
 private SessionManager sessionManager;
 private ArrayList<Conge> listeConge;
 private RecyclerView.Adapter adapter;
+private TextView vide;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
@@ -65,6 +67,7 @@ private RecyclerView.Adapter adapter;
         server_url =  "https://estsafi.000webhostapp.com/v1/demandes.php?id="+id;
 
         //Toast.makeText(getContext(), ""+id, Toast.LENGTH_LONG).show();
+        vide = binding.empty;
 
         recyclerView = binding.liste;
         recyclerView.setHasFixedSize(true);
@@ -93,6 +96,9 @@ private RecyclerView.Adapter adapter;
                             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                             adapter = new Adapter(listeConge, getContext());
                             recyclerView.setAdapter(adapter);
+                            if(jsonArray.length()==0){
+                                vide.setText("لا تجد أي طلبات نيابة");
+                            }
                         }catch (JSONException e){
                             e.printStackTrace();
                         }

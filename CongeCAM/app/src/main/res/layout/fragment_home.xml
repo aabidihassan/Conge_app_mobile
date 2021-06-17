@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/back"
     android:padding="10dp"
     tools:context=".ui.home.HomeFragment">
 
@@ -12,12 +13,18 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="252dp"
+        android:layout_marginEnd="151dp"
+        android:gravity="center"
         android:text="لائحة طلباتي :"
-        app:layout_constraintBottom_toTopOf="@+id/liste"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:typeface="sans"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/piechart"
@@ -33,11 +40,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/liste"
-        android:layout_width="370dp"
-        android:layout_height="362dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="387dp"
+        android:layout_height="370dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 

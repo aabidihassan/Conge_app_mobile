@@ -25,8 +25,9 @@
                 android:id="@+id/referance"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="160dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="180dp"
+                android:gravity="center"
                 android:text="Song Title"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +37,7 @@
             <TextView
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="0dp"
                 android:text="رقم الطلب :"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -57,7 +58,8 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="184dp"
-                android:layout_marginEnd="160dp"
+                android:layout_marginEnd="180dp"
+                android:gravity="center"
                 android:text="Song Artist"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/referance" />
@@ -67,7 +69,8 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:layout_marginEnd="160dp"
+                android:layout_marginEnd="180dp"
+                android:gravity="center"
                 android:text="Song Artist"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/referance" />
@@ -85,7 +88,8 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
-                android:layout_marginEnd="160dp"
+                android:layout_marginEnd="180dp"
+                android:gravity="center"
                 android:text="Song Artist"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/referance" />
@@ -103,7 +107,8 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="128dp"
-                android:layout_marginEnd="160dp"
+                android:layout_marginEnd="180dp"
+                android:gravity="center"
                 android:text="Song Artist"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/referance" />
@@ -119,10 +124,11 @@
 
             <TextView
                 android:id="@+id/etat"
-                android:layout_width="120dp"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="240dp"
-                android:layout_marginEnd="160dp"
+                android:layout_marginEnd="172dp"
+                android:gravity="center"
                 android:text="Song Artist"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/referance" />

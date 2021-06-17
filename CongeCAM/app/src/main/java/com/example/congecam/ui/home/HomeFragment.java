@@ -57,6 +57,7 @@ private RecyclerView recyclerView;
 private SlideshowViewModel slideshowViewModel;
 private ArrayList<Conge> liste;
 private RecyclerView.Adapter adapter;
+private TextView empty;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
@@ -74,6 +75,8 @@ private RecyclerView.Adapter adapter;
     pieChart = binding.piechart;
 
     liste = new ArrayList<>();
+
+    empty = binding.textView4;
 
     recyclerView = binding.liste;
     recyclerView.setHasFixedSize(true);
@@ -111,6 +114,10 @@ private RecyclerView.Adapter adapter;
                             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                             adapter = new HomeAdapter(liste, getContext());
                             recyclerView.setAdapter(adapter);
+
+                            if(liste.isEmpty())
+                            empty.setText("لا توجد لديك أي طلبات عطل");
+
                             int rest = json.getInt("rest");
 
                             entries.add(new PieEntry(22-rest, "الأيام المستهلكة"));
